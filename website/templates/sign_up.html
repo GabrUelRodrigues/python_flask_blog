@@ -2,5 +2,24 @@
 {% block title %}Sign Up{% endblock title %}
 
 {% block content %}
-<h1>Sign up page</h1>
+<form method="POST">
+	<h3 align="center">Sign Up</h3>
+	<div class="form-group">
+	  <label for="email">Email</label>
+	  <input type="email" class="form-control mb-4" id="email" name="email" aria-describedby="emailHelp">
+	</div>
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input type="text" class="form-control mb-4" id="name" name="name">
+	</div>
+	<div class="form-group">
+	  <label for="password1">Password</label>
+	  <input type="password" class="form-control mb-4" id="password1" name="password1">
+	</div>
+	<div class="form-group">
+		<label for="password2">Confirm Password</label>
+		<input type="password" class="form-control mb-4" id="password2" name="password2">
+	</div>
+	<button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
 {% endblock content %}
