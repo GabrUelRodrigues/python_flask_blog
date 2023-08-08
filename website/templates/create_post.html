@@ -2,5 +2,14 @@
 {% block title %}Create post{% endblock title %}
 
 {% block content %}
-<h1>Create post page</h1>
+<form method="POST">
+	<h3 align="center">Login</h3>
+	<textarea class="form-control mb-4" id="exampleFormControlTextarea1" name="text" rows="3"></textarea>
+	<div align="center">
+		<button type="submit" class="btn btn-primary">Create</button>
+	</div>
+</form>
+<div class="my-2" align="center">
+	<a href="/home"><button type="button" class="btn btn-secondary">Back</button></a>
+</div>
 {% endblock content %}

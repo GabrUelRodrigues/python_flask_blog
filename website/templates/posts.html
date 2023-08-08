@@ -1,6 +1,10 @@
-{% extends 'base.html' %}
-{% block title %}Posts{% endblock title %}
+{% extends "posts_div.html" %}
+{% block title %}{{username}}'s Posts{% endblock title %}
 
-{% block content %}
-<h1>Posts page</h1>
-{% endblock content %}
+{% block header %}<h3 class="my-4" align="center">{{username}}'s Posts</h3>{% endblock header %}
+
+{% block footer %}
+	<div class="my-2" align="center">
+		<a href="/home"><button type="button" class="btn btn-secondary">Back</button></a>
+	</div>
+{% endblock footer %}
