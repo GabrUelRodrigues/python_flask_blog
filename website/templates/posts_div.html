@@ -24,7 +24,7 @@
 					<div class="card-footer">
 						{% if post.comments|length > 0 %}
 							<a href="#" class="text-decoration-none" role="button" data-bs-toggle="collapse" data-bs-target="#comments-{{post.id}}">
-								<p class="text-muted fst-italic mb-2">Show {{post.comments|length}} comments.</p>
+								<p class="text-muted fst-italic mb-2">Show {{post.comments|length}} comment(s).</p>
 							</a>
 							<div class="collapse mb-2" id="comments-{{post.id}}">
 								<div class="card card-body" id="comments-expanded-{{post.id}}">
