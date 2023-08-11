@@ -2,14 +2,16 @@
 {% block title %}Create Post{% endblock title %}
 
 {% block content %}
-<form method="POST">
-	<h3 align="center">Create Post</h3>
-	<textarea class="form-control mb-4" id="exampleFormControlTextarea1" name="text" rows="3"></textarea>
-	<div align="center">
-		<button type="submit" class="btn btn-primary">Create</button>
+	<div class="m-2">
+		<form method="POST">
+			<h3 align="center">Create Post</h3>
+			<textarea class="form-control mb-4" id="exampleFormControlTextarea1" name="text" rows="3"></textarea>
+			<div align="center">
+				<div class="btn-group-vertical" role="group">
+					<button type="submit" class="btn btn-primary">Create</button>
+					<a href="/home" class="btn btn-secondary">Back</a>
+				</div>
+			</div>
+		</form>
 	</div>
-</form>
-<div class="my-2" align="center">
-	<a href="/home"><button type="button" class="btn btn-secondary">Back</button></a>
-</div>
 {% endblock content %}

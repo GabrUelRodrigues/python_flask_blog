@@ -7,9 +7,9 @@
 	<link rel="icon" type="image/x-icon" href="../static/images/favicon.png">
 	<title>{% block title %}Title{% endblock title %}</title>
 </head>
-<body>
-	<header>
-		<nav class="navbar navbar-expand-lg bg-primary-subtle" data-bs-theme="dark">
+<body class="bg-dark-subtle" data-bs-theme="dark">
+	<header class="fixed-top">
+		<nav class="navbar navbar-expand-lg bg-primary">
 			<div class="container-fluid">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -20,6 +20,9 @@
 							<a class="nav-link" href="/home">Home</a>
 						</li>
 						{% if user.is_authenticated %}
+							<li class="nav-item">
+								<a class="nav-link" href="/create-post">Create Post</a>
+							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="/logout">Logout</a>
 							</li>
@@ -35,33 +38,34 @@
 				</div>
 			</div>
 		</nav>
+		<div class="opacity-75">
+			{% with messages = get_flashed_messages(with_categories=true) %}
+				{% if messages %}
+					{% for category, message in messages %}
+						{% if category == "error" %}
+							<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								{{ message }}
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						{% elif category == "success" %}
+							<div class="alert alert-success alert-dismissible fade show" role="alert">
+								{{ message }}
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						{% else %}
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								{{ message }}
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							</div>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		</div>
 	</header>
 
 	<main>
-		{% with messages = get_flashed_messages(with_categories=true) %}
-			{% if messages %}
-				{% for category, message in messages %}
-					{% if category == "error" %}
-						<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							{{ message }}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					  	</div>
-					{% elif category == "success" %}
-						<div class="alert alert-success alert-dismissible fade show" role="alert">
-							{{ message }}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					  	</div>
-					{% else %}
-						<div class="alert alert-warning alert-dismissible fade show" role="alert">
-							{{ message }}
-							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-		{% endwith %}
-
-		<div class="container w-50">
+		<div class="container w-50 h-100 bg-light-subtle mt-5 px-4 py-1">
 			{% block content %}Content{% endblock content %}
 		</div>
 	</main>
