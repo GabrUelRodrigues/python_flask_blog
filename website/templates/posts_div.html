@@ -10,11 +10,19 @@
 			{% for post in posts %}
 				<div class="card my-4">
 					<div class="card-header">
-						{% if user.id == post.author %}
-							<div class="rounded border border-secondary-subtle position-absolute end-0 mx-2">
+						<div class="rounded border border-secondary-subtle position-absolute end-0 mx-2">
+							<span class="text-muted ms-1">{{post.likes|length}}</span>
+
+							{% if user.id in post.likes|map(attribute="author")|list %}
+								<a class="text-decoration-none mx-1" href="/like-post/{{post.id}}">❤️</a>
+							{% else %}
+								<a class="text-decoration-none mx-1" href="/like-post/{{post.id}}">🖤</a>
+							{% endif %}
+
+							{% if user.id == post.author %}
 								<a class="text-decoration-none mx-1" href="/delete-post/{{post.id}}">🗑️</a>
-							</div>
-						{% endif %}
+							{% endif %}
+						</div>
 						<a href="/posts/{{post.post_author.username}}" class="text-decoration-none"><h5 class="card-title">{{post.post_author.username}}</h5></a>
 						<small class="card-subtitle text-body-secondary">{{post.date_created}}</small>
 					</div>
