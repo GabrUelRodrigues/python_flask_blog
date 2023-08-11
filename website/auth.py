@@ -70,4 +70,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("views.home"))
+    return redirect(url_for("auth.login"))
