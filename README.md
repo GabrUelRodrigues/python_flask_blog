@@ -19,10 +19,10 @@ In order to run this project, make sure you already have Python installed, then 
    pip install flask, flask-sqlalchemy, flask-login
    ```
    
-3. Run the `main.py` file in the project directory
+3. Run the `app.py` file in the project directory
 
    ```bash
-   python main.py
+   python app.py
    ```
    
 4. Access the server in your localhost `http://127.0.0.1:5000`
